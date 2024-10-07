@@ -18,7 +18,7 @@ This document outlines essential clean code practices and best practices specifi
 ## CodeIgniter 3-Specific Practices
 
 -   **MVC Structure:** Strictly adhere to the Model-View-Controller (MVC) architecture. Keep your models responsible for data access, views for presentation, and controllers for handling user requests.\
-    **Bad** \
+    **Bad**
 
     ```
         // Controller
@@ -31,7 +31,7 @@ This document outlines essential clean code practices and best practices specifi
     ```
     (Mixing model and controller logic) \
 
-    **Good** \
+    **Good**
 
     ```
         // Controller
@@ -59,7 +59,7 @@ This document outlines essential clean code practices and best practices specifi
 
     
 -   **Database Abstraction:** Use CodeIgniter's Active Record class for database interactions. This provides a consistent and secure way to query and manipulate data. \
-    **Bad** \
+    **Bad**
     ```
         $sql = "SELECT * FROM users WHERE id = 1";
         $query = $this->db->query($sql);
@@ -82,7 +82,7 @@ This document outlines essential clean code practices and best practices specifi
     ```
     (Manual form creation instead of using form helper) '
 
-    **Good** \
+    **Good**
     ```
         $this->load->helper('form');
         echo form_open('users/create');
