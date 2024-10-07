@@ -17,8 +17,8 @@ This document outlines essential clean code practices and best practices specifi
 
 ## CodeIgniter 3-Specific Practices
 
--   **MVC Structure:** Strictly adhere to the Model-View-Controller (MVC) architecture. Keep your models responsible for data access, views for presentation, and controllers for handling user requests.
-    **Bad**
+-   **MVC Structure:** Strictly adhere to the Model-View-Controller (MVC) architecture. Keep your models responsible for data access, views for presentation, and controllers for handling user requests.\
+    **Bad** \
 
     ```
         // Controller
@@ -29,10 +29,11 @@ This document outlines essential clean code practices and best practices specifi
             }
         }
     ```
-    (Mixing model and controller logic)
+    (Mixing model and controller logic) \
 
-    **Good**
-    '''
+    **Good** \
+
+    ```
         // Controller
         class ProductsController extends CI_Controller {
             public function index() {
@@ -54,41 +55,41 @@ This document outlines essential clean code practices and best practices specifi
                 <li><?php echo $product['name']; ?></li>
             <?php endforeach; ?>
         </ul>
-    '''
+    ```
 
     
--   **Database Abstraction:** Use CodeIgniter's Active Record class for database interactions. This provides a consistent and secure way to query and manipulate data.
-    **Bad**
-    '''
+-   **Database Abstraction:** Use CodeIgniter's Active Record class for database interactions. This provides a consistent and secure way to query and manipulate data. \
+    **Bad** \
+    ```
         $sql = "SELECT * FROM users WHERE id = 1";
         $query = $this->db->query($sql);
-    '''
-    (Using raw SQL instead of Active Record)
+    ```
+    (Using raw SQL instead of Active Record) \
 
     **Good**
-    '''
+    ```
         $this->db->where('id', 1);
         $query = $this->db->get('users');
         $user = $query->row();
-    '''
--   **Helpers and Libraries:** Utilize CodeIgniter's built-in helpers and libraries to avoid reinventing the wheel. These provide reusable functionality for common tasks like form validation, file handling, and email sending.
+    ```
+-   **Helpers and Libraries:** Utilize CodeIgniter's built-in helpers and libraries to avoid reinventing the wheel. These provide reusable functionality for common tasks like form validation, file handling, and email sending. \
     **Bad**
-    '''
+    ```
         echo '<form action="users/create" method="post">';
         echo '<input type="text" name="name">';
         echo '<input type="submit" value="Create User">';
         echo '</form>';
-    '''
-    (Manual form creation instead of using form helper)
+    ```
+    (Manual form creation instead of using form helper) '
 
-    **Good**
-    '''
+    **Good** \
+    ```
         $this->load->helper('form');
         echo form_open('users/create');
         echo form_input('name');
         echo form_submit('submit', 'Create User');
         echo form_close();
-    '''
+    ```
 -   **Security:** Implement security best practices to protect your application from vulnerabilities. This includes using prepared statements for database queries, preventing SQL injection, and validating user input.
 -   **Performance Optimization:** Optimize your code for performance by minimizing database queries, using caching techniques, and avoiding unnecessary computations.
 -   **CodeIgniter Hooks:** Leverage CodeIgniter's hooks to extend the framework's functionality without modifying core files. This provides a flexible way to customize behavior.
