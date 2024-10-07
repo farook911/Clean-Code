@@ -29,7 +29,7 @@ This document outlines essential clean code practices and best practices specifi
             }
         }
     ```
-    (Mixing model and controller logic) \
+    (Mixing model and controller logic)
 
     **Good**
 
@@ -64,7 +64,7 @@ This document outlines essential clean code practices and best practices specifi
         $sql = "SELECT * FROM users WHERE id = 1";
         $query = $this->db->query($sql);
     ```
-    (Using raw SQL instead of Active Record) \
+    (Using raw SQL instead of Active Record)
 
     **Good**
     ```
@@ -80,7 +80,7 @@ This document outlines essential clean code practices and best practices specifi
         echo '<input type="submit" value="Create User">';
         echo '</form>';
     ```
-    (Manual form creation instead of using form helper) '
+    (Manual form creation instead of using form helper)
 
     **Good**
     ```
