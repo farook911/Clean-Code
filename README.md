@@ -19,7 +19,8 @@ This document outlines essential clean code practices and best practices specifi
 
 -   **MVC Structure:** Strictly adhere to the Model-View-Controller (MVC) architecture. Keep your models responsible for data access, views for presentation, and controllers for handling user requests.
     **Bad**
-    '''
+
+    ```
         // Controller
         class ProductsController extends CI_Controller {
             public function index() {
@@ -27,7 +28,7 @@ This document outlines essential clean code practices and best practices specifi
                 $this->load->view('products/index', ['products' => $products]);
             }
         }
-    '''
+    ```
     (Mixing model and controller logic)
 
     **Good**
@@ -79,7 +80,7 @@ This document outlines essential clean code practices and best practices specifi
         echo '</form>';
     '''
     (Manual form creation instead of using form helper)
-    
+
     **Good**
     '''
         $this->load->helper('form');
